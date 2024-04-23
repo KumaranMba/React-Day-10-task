@@ -23,7 +23,51 @@ function App(props) {
   const [newcompanycatchphrase,setCompanyNewCatchPhrase] = useState('');
   const [newCompanybs,setNewCompanyBs] = useState('');
 
+  const addUserHandler = (event)=>{
+    event.preventDefault();
+    // create a new users object
+    let newUser={
+      id : users.length + 1,
+      name: newName,
+      username: newusername,
+      email: newuseremail,
+      address: {
+      street: newaddresssuite,
+      suite : newaddressstreet,
+      city :  newcity,
+      zipcode : newzipcode,
+      geo : {
+      lat : newgeolat,
+      lng : newgeolng
+      }
+      },
+      phone : newphonenum,
+      website : newwebsite,
+      company : {
+      name : newcompanyname,
+      catchPhrase : newcompanycatchphrase,
+      bs : newCompanybs,
 
+    }
+  }
+  setUsers(users.concat(newUser));
+  // claer the input object
+  setNewName('');
+  setNewUserName('');
+  setNewUserEmail('');
+  setNewAddressSuite('');
+  setNewAddressStreet('');
+  setNewCity('');
+  setNewZipCode('');
+  setNewGeoLat('');
+  setNewGeoLng('');
+  setNewPhoneNum('');
+  setNewWebsite('');
+  setNewCompanyName('');
+  setCompanyNewCatchPhrase('');
+  setNewCompanyBs('');
+  newnameRef.current.focus();
+}
   // define a contentRef to access and manipulate the content element
    const newnameRef = useRef(null);
 
@@ -60,120 +104,121 @@ function App(props) {
       }
     </ul>
     <h2>Add a New User</h2>
-    <form>
+    <form onSubmit={addUserHandler}>
       <label>
-        Name: &nbsp;&nbsp;&nbsp;&nbsp;
+        Name: &nbsp;&nbsp;
         <input
           type='text'
           ref={newnameRef}
           value={newName}
           onChange={e => setNewName(e.target.value)}
         />
-      </label><br></br>
-      <br></br> <label>
-        Username: &nbsp;&nbsp;&nbsp;&nbsp;
+      </label><br/>
+      <br/> <label>
+        Username: &nbsp;&nbsp;
         <input
           type="text"
           value= {newusername}
           onChange={e=>setNewUserName(e.target.value)}
         />
-      </label><br></br>
-      <br></br> <label>
-        Email: &nbsp;&nbsp;&nbsp;&nbsp;
+      </label><br/>
+      <br/> <label>
+        Email: &nbsp;&nbsp;
         <input
           type="email"
           value= {newuseremail}
           onChange={e=>setNewUserEmail(e.target.value)}
         />
-      </label><br></br>
-      <br></br> <label>
-        <b>Address</b><br></br>
-        Suite: &nbsp;&nbsp;&nbsp;&nbsp;
+      </label><br/>
+      <br/> <label>
+        <b>Address</b><br/>
+        Suite: &nbsp;&nbsp;
         <input
           type="text"
           value= {newaddresssuite}
           onChange={e=>setNewAddressSuite(e.target.value)}
-        />&nbsp;&nbsp;&nbsp;&nbsp;
-        street: &nbsp;&nbsp;&nbsp;&nbsp;
+        />&nbsp;&nbsp;
+        street: &nbsp;&nbsp;
         <input
           type="text"
           value= {newaddressstreet}
           onChange={e=>setNewAddressStreet(e.target.value)}
         />
-      </label><br></br>
-      <br></br> <label>
-        City: &nbsp;&nbsp;&nbsp;&nbsp;
+      </label><br/>
+      <br/> <label>
+        City: &nbsp;&nbsp;
         <input
           type="text"
           value= {newcity}
           onChange={e=>setNewCity(e.target.value)}
-        />&nbsp;&nbsp;&nbsp;&nbsp;
-        zipcode: &nbsp;&nbsp;&nbsp;&nbsp;
+        />&nbsp;&nbsp;
+        zipcode: &nbsp;&nbsp;
         <input
           type= "text"
           value= {newzipcode}
           onChange={e=>setNewZipCode(e.target.value)}
         />
-      </label><br></br>
-      <label><br></br>
-      <b>Geographic Location</b><br></br>
-      <br></br>
-        Lat: &nbsp;&nbsp;&nbsp;&nbsp;
+      </label><br/>
+      <label><br/>
+      <b>Geographic Location</b><br/>
+      <br/>
+        Lat: &nbsp;&nbsp;
         <input
           type="text"
           value= {newgeolat}
           onChange={e=>setNewGeoLat(e.target.value)}
-        />&nbsp;&nbsp;&nbsp;&nbsp;
-        Lng: &nbsp;&nbsp;&nbsp;&nbsp;
+        />&nbsp;&nbsp;
+        Lng: &nbsp;&nbsp;
         <input
           type="text"
           value= {newgeolng}
           onChange={e=>setNewGeoLng(e.target.value)}
         />
-      </label><br></br>
-      <label><br></br>
-        Phone: &nbsp;&nbsp;&nbsp;&nbsp;
+      </label><br/>
+      <label><br/>
+        Phone: &nbsp;&nbsp;
         <input
           type="tel"
-          pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}"
           value={newphonenum}
           onChange={e=>setNewPhoneNum(e.target.value)}
         />
-      </label><br></br>
-      <label><br></br>
+      </label><br/>
+      <label><br/>
         Website:&nbsp;&nbsp;
         <input 
         type='text'
         value={newwebsite}
         onChange={e=>setNewWebsite(e.target.value)}
         />
-      </label><br></br>
-      <label><br></br>
-        <b>Company:</b><br></br>
-        <br></br>
-        name:&nbsp;&nbsp;&nbsp;&nbsp;
-        <input 
+      </label><br/>
+      <label><br/>
+        <b>Company:</b><br/>
+        <br/>
+        name:&nbsp;&nbsp;
+        <input
         type='text'
         value={newcompanyname}
         onChange={e=>setNewCompanyName(e.target.value)}
         />
-      </label><br></br>
-      <label><br></br>
+      </label><br/>
+      <label><br/>
       catchPhrase:&nbsp;&nbsp;
         <input 
         type='text'
         value={newcompanycatchphrase}
         onChange={e=>setCompanyNewCatchPhrase(e.target.value)}
         />
-      </label><br></br>
-      <label><br></br>
+      </label><br/>
+      <label><br/>
        bs:&nbsp;&nbsp;
         <input 
         type='text'
         value={newCompanybs}
         onChange={e=>setNewCompanyBs(e.target.value)}
         />
-      </label><br></br>
+      </label><br/>
+      <br/>
+      <button type='submit'>Add a new user</button>
     </form>
     </div>
   )
