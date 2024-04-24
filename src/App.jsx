@@ -1,11 +1,11 @@
-import React, { useRef, useState } from 'react';
+import axios from 'axios';
+import React, { useEffect, useRef, useState } from 'react';
 
-// Read the users list and render it here
 
-function App(props) {
+function App() {
 
   // Define a state to store the users from props
-  const [users, setUsers] = useState(props.users);
+  const [users, setUsers] = useState([]);
 
     // states for adding new user form
   const [newName,setNewName] = useState('');
@@ -23,6 +23,27 @@ function App(props) {
   const [newcompanycatchphrase,setCompanyNewCatchPhrase] = useState('');
   const [newCompanybs,setNewCompanyBs] = useState('');
 
+  // define a contentRef to access and manipulate the content element
+  const newnameRef = useRef(null);
+
+  const fetchUsers=async() =>{
+    try{
+      const response = await axios.get('http://localhost:3001/users');
+      setUsers(response.data);
+    }catch(error){
+      console.log("Failed to fetch User data:",error);
+    }
+  }
+
+  useEffect(()=>{
+    newnameRef.current.focus();
+  },[]);
+
+  useEffect(()=>{
+    fetchUsers();
+  },[])
+
+  // A  function that handles submitting the add user form
   const addUserHandler = (event)=>{
     event.preventDefault();
     // create a new users object
@@ -50,7 +71,13 @@ function App(props) {
 
     }
   }
-  setUsers(users.concat(newUser));
+  // setUsers(users.concat(newUser));
+  console.log('adding a new note...');
+  axios.post('http://localhost:3001/users',newUser)
+  .then(response=>{
+    console.log('note added successfully...');
+  })
+
   // claer the input object
   setNewName('');
   setNewUserName('');
@@ -67,9 +94,10 @@ function App(props) {
   setCompanyNewCatchPhrase('');
   setNewCompanyBs('');
   newnameRef.current.focus();
+
+  fetchUsers();
 }
-  // define a contentRef to access and manipulate the content element
-   const newnameRef = useRef(null);
+  
 
   return (
     <div>
