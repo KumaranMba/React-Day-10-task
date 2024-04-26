@@ -2,6 +2,9 @@ import axios from 'axios';
 import React, { useEffect, useRef, useState } from 'react';
 import Readusers from './components/Readusers';
 import Createuser from './components/Createuser';
+import{Link,Route,BrowserRouter as Router, Routes} from "react-router-dom";
+import Dashboard from './components/Dashboard';
+
 
 
 function App() {
@@ -37,9 +40,9 @@ function App() {
     }
   }
 
-  useEffect(()=>{
-    newnameRef.current.focus();
-  },[]);
+  // useEffect(()=>{
+  //   newnameRef.current.focus();
+  // },[]);
 
   useEffect(()=>{
     fetchUsers();
@@ -100,22 +103,43 @@ function App() {
 
   fetchUsers();
 }
-  
+  const padding= {
+    paddingRight:20,
+  }  
 
   return (
+   <Router>
     <div>
-    <Readusers users={users}/>
-
-    <Createuser addUserHandler={addUserHandler} newnameRef={newnameRef} newName={newName} setNewName={setNewName}
+      <Link to='/' style={padding}>Dashboard</Link>
+      <Link to='/read' style={padding}>Read user</Link>
+      <Link to='/create' style={padding}>Create User</Link>
+    </div>
+    <Routes>
+      <Route path='/' element={<Dashboard/>}/>
+      <Route path="/read" element={<Readusers users={users}/>}/>
+      <Route path="/create" element={<Createuser addUserHandler={addUserHandler} newnameRef={newnameRef} newName={newName} setNewName={setNewName}
       newusername={newusername} setNewUserName={setNewUserName} newuseremail={newuseremail} setNewUserEmail={setNewUserEmail}
       newaddresssuite={newaddresssuite} setNewAddressSuite={setNewAddressSuite} newaddressstreet={newaddressstreet} newcity={newcity} 
       setNewCity={setNewCity} newzipcode={newzipcode} setNewZipCode={setNewZipCode} newgeolat={newgeolat} setNewGeoLat={setNewGeoLat}
       newgeolng={newgeolng} setNewGeoLng={setNewGeoLng} newphonenum={newphonenum} setNewPhoneNum={setNewPhoneNum} newwebsite={newwebsite}
       newcompanyname={newcompanyname} setNewCompanyName={setNewCompanyName} newcompanycatchphrase={newcompanycatchphrase}
       setCompanyNewCatchPhrase={setCompanyNewCatchPhrase} newCompanybs={newCompanybs} setNewCompanyBs={setNewCompanyBs}
-      />
-    </div>
+  />}/>
+
+    </Routes>
+   </Router>
   )
 }
 
 export default App;
+
+/*<Readusers users={users}/>
+
+<Createuser addUserHandler={addUserHandler} newnameRef={newnameRef} newName={newName} setNewName={setNewName}
+  newusername={newusername} setNewUserName={setNewUserName} newuseremail={newuseremail} setNewUserEmail={setNewUserEmail}
+  newaddresssuite={newaddresssuite} setNewAddressSuite={setNewAddressSuite} newaddressstreet={newaddressstreet} newcity={newcity} 
+  setNewCity={setNewCity} newzipcode={newzipcode} setNewZipCode={setNewZipCode} newgeolat={newgeolat} setNewGeoLat={setNewGeoLat}
+  newgeolng={newgeolng} setNewGeoLng={setNewGeoLng} newphonenum={newphonenum} setNewPhoneNum={setNewPhoneNum} newwebsite={newwebsite}
+  newcompanyname={newcompanyname} setNewCompanyName={setNewCompanyName} newcompanycatchphrase={newcompanycatchphrase}
+  setCompanyNewCatchPhrase={setCompanyNewCatchPhrase} newCompanybs={newCompanybs} setNewCompanyBs={setNewCompanyBs}
+  /> */

@@ -1,9 +1,14 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+ 
 
 function Createuser({addUserHandler,newnameRef,newName,setNewName,newusername,setNewUserName,newuseremail,setNewUserEmail,
     newaddresssuite,setNewAddressSuite,newaddressstreet,newcity,setNewCity,newzipcode,setNewZipCode,newgeolat,setNewGeoLat,
     newgeolng,setNewGeoLng,newphonenum,setNewPhoneNum, newwebsite, newcompanyname,setNewCompanyName,newcompanycatchphrase,
     setCompanyNewCatchPhrase, newCompanybs,setNewCompanyBs}) {
+
+       useEffect(()=>{
+       newnameRef.current.focus();
+       },[]);
   return (
     <div>
         <h2>Add a New User</h2>
