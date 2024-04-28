@@ -5,6 +5,7 @@ import Createuser from './components/Createuser';
 import{Link,Route,BrowserRouter as Router, Routes} from "react-router-dom";
 import Dashboard from './components/Dashboard';
 import Edituser from './components/Edituser';
+import Deleteuser from './components/Deleteuser';
 
 
 
@@ -116,6 +117,7 @@ function App() {
       <Link to='/read' style={padding}>Read user</Link>
       <Link to='/create' style={padding}>Create User</Link>
       <Link to='/update' style={padding}>Update User</Link>
+      <Link to= '/delete' style={padding}>Delete user</Link>
     </div>
     <Routes>
       <Route path='/' element={<Dashboard/>}/>
@@ -129,6 +131,7 @@ function App() {
       setCompanyNewCatchPhrase={setCompanyNewCatchPhrase} newCompanybs={newCompanybs} setNewCompanyBs={setNewCompanyBs}
   />}/>
       <Route path='/update' element={<Edituser users={users} setUsers={setUsers} fetchUsers={fetchUsers}/>} />
+      <Route path='/delete' element={<Deleteuser users={users} setUsers={setUsers} fetchUsers={fetchUsers}/>}/>
     </Routes>
    </Router>
   )
