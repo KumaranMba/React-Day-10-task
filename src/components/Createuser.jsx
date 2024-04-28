@@ -9,6 +9,7 @@ function Createuser({addUserHandler,newnameRef,newName,setNewName,newusername,se
        useEffect(()=>{
        newnameRef.current.focus();
        },[]);
+       
   return (
     <div>
         <h2>Add a New User</h2>
