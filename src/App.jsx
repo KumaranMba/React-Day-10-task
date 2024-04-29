@@ -8,8 +8,6 @@ import Edituser from './components/Edituser';
 import Deleteuser from './components/Deleteuser';
 
 
-
-
 function App() {
 
   // Define a state to store the users from props
@@ -34,6 +32,7 @@ function App() {
   // define a contentRef to access and manipulate the content element
   const newnameRef = useRef(null);
 
+  //  Function that is used  to get all of the data from the server.
   const fetchUsers=async() =>{
     try{
       const response = await axios.get('http://localhost:3001/users');
@@ -43,10 +42,8 @@ function App() {
     }
   }
 
-  // useEffect(()=>{
-  //   newnameRef.current.focus();
-  // },[]);
-
+ // Call the function when the component mounts
+ 
   useEffect(()=>{
     fetchUsers();
   },[])
@@ -87,7 +84,7 @@ function App() {
     console.log('note added successfully...');
   })
 
-  // claer the input object
+  // clear the input object
   setNewName('');
   setNewUserName('');
   setNewUserEmail('');
@@ -106,6 +103,7 @@ function App() {
 
   fetchUsers();
 }
+// Adding style to the Navbar elements using CSS in JS
   const padding= {
     paddingRight:20,
   }  

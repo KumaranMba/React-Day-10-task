@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
  
-
+// To create a new user
 function Createuser({addUserHandler,newnameRef,newName,setNewName,newusername,setNewUserName,newuseremail,setNewUserEmail,
     newaddresssuite,setNewAddressSuite,newaddressstreet,newcity,setNewCity,newzipcode,setNewZipCode,newgeolat,setNewGeoLat,
     newgeolng,setNewGeoLng,newphonenum,setNewPhoneNum, newwebsite, newcompanyname,setNewCompanyName,newcompanycatchphrase,
@@ -15,7 +15,7 @@ function Createuser({addUserHandler,newnameRef,newName,setNewName,newusername,se
         <h2>Add a New User</h2>
     <form onSubmit={addUserHandler}>
       <label>
-        Name: &nbsp;&nbsp;
+        Name: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <input
           type='text'
           ref={newnameRef}
@@ -32,7 +32,7 @@ function Createuser({addUserHandler,newnameRef,newName,setNewName,newusername,se
         />
       </label><br/>
       <br/> <label>
-        Email: &nbsp;&nbsp;
+        Email: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <input
           type="email"
           value= {newuseremail}
@@ -41,13 +41,13 @@ function Createuser({addUserHandler,newnameRef,newName,setNewName,newusername,se
       </label><br/>
       <br/> <label>
         <b>Address</b><br/>
-        Suite: &nbsp;&nbsp;
+        Suite: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <input
           type="text"
           value= {newaddresssuite}
           onChange={e=>setNewAddressSuite(e.target.value)}
         />&nbsp;&nbsp;
-        street: &nbsp;&nbsp;
+        street: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <input
           type="text"
           value= {newaddressstreet}
@@ -55,7 +55,7 @@ function Createuser({addUserHandler,newnameRef,newName,setNewName,newusername,se
         />
       </label><br/>
       <br/> <label>
-        City: &nbsp;&nbsp;
+        City: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <input
           type="text"
           value= {newcity}
@@ -71,13 +71,13 @@ function Createuser({addUserHandler,newnameRef,newName,setNewName,newusername,se
       <label><br/>
       <b>Geographic Location</b><br/>
       <br/>
-        Lat: &nbsp;&nbsp;
+        Lat: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <input
           type="text"
           value= {newgeolat}
           onChange={e=>setNewGeoLat(e.target.value)}
         />&nbsp;&nbsp;
-        Lng: &nbsp;&nbsp;
+        Lng: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <input
           type="text"
           value= {newgeolng}
@@ -85,7 +85,7 @@ function Createuser({addUserHandler,newnameRef,newName,setNewName,newusername,se
         />
       </label><br/>
       <label><br/>
-        Phone: &nbsp;&nbsp;
+        Phone: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <input
           type="tel"
           value={newphonenum}
@@ -93,7 +93,7 @@ function Createuser({addUserHandler,newnameRef,newName,setNewName,newusername,se
         />
       </label><br/>
       <label><br/>
-        Website:&nbsp;&nbsp;
+        Website:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <input 
         type='text'
         value={newwebsite}
@@ -103,7 +103,7 @@ function Createuser({addUserHandler,newnameRef,newName,setNewName,newusername,se
       <label><br/>
         <b>Company:</b><br/>
         <br/>
-        name:&nbsp;&nbsp;
+        name:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <input
         type='text'
         value={newcompanyname}
@@ -111,7 +111,7 @@ function Createuser({addUserHandler,newnameRef,newName,setNewName,newusername,se
         />
       </label><br/>
       <label><br/>
-      catchPhrase:&nbsp;&nbsp;
+      catchPhrase:&nbsp;&nbsp;&nbsp;
         <input 
         type='text'
         value={newcompanycatchphrase}
@@ -119,7 +119,7 @@ function Createuser({addUserHandler,newnameRef,newName,setNewName,newusername,se
         />
       </label><br/>
       <label><br/>
-       bs:&nbsp;&nbsp;
+       bs:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <input 
         type='text'
         value={newCompanybs}
